@@ -1,0 +1,26 @@
+package com.chiangt.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.chiangt.domain.ResponseResult;
+import com.chiangt.domain.dto.AddArticleDto;
+import com.chiangt.domain.entity.Article;
+import com.chiangt.domain.vo.ArticleVo;
+import com.chiangt.domain.vo.PageVo;
+
+public interface ArticleService extends IService<Article> {
+    ResponseResult hotArticleList();
+
+    ResponseResult articleList(Integer pageNum, Integer pageSize, Long categoryId);
+
+    ResponseResult getArticleDetail(Long id);
+
+    ResponseResult updateViewCount(Long id);
+
+    ResponseResult add(AddArticleDto addArticleDto);
+
+    PageVo selectArticlePage(Article article, Integer pageNum, Integer pageSize);
+
+    ArticleVo getInfo(Long id);
+
+    void edit(AddArticleDto addArticleDto);
+}
